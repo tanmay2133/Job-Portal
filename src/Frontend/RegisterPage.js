@@ -25,13 +25,33 @@ const RegisterPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    e.preventDefault();
-    // Perform registration logic here
-    navigate('/login');
-    // Add API call for registration
+  
+    const formDataObj = new FormData();
+    formDataObj.append('fullName', formData.fullName);
+    formDataObj.append('email', formData.email);
+    formDataObj.append('password', formData.password);
+    formDataObj.append('mobileNumber', formData.mobileNumber);
+    formDataObj.append('location', formData.location);
+    formDataObj.append('experience', formData.experience);
+    formDataObj.append('resume', formData.resume);
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/register', {
+        method: 'POST',
+        body: formDataObj,
+      });
+  
+      if (response.ok) {
+        console.log('User registered successfully');
+        navigate('/login');
+      } else {
+        console.error('Failed to register user');
+      }
+    } catch (err) {
+      console.error('Error during registration:', err);
+    }
   };
 
   return (

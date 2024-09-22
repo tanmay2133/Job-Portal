@@ -3,7 +3,7 @@ import HomePage from './HomePage';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import JobsPage from './JobsPage';
-import EmployerRegisterPage from './EmployerRegisterPage'; // Import the employer registration page
+import EmployerRegisterPage from './EmployerRegisterPage';
 
 function App() {
   return (
@@ -13,7 +13,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/jobs" element={<JobsPage />} />
-        <Route path="/employer-register" element={<EmployerRegisterPage />} /> {/* Employer Registration Route */}
+        <Route path="/employer-register" element={<EmployerRegisterPage />} />
+        <Route path="*" element = {<HomePage/>}/>
       </Routes>
     </Router>
   );

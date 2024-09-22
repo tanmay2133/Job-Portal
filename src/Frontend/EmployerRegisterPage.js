@@ -35,9 +35,8 @@ const EmployerRegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your registration logic here
     console.log('Employer registered:', formData);
-    navigate('/login'); // Redirect to login page after registration
+    navigate('/login');
   };
 
   return (
