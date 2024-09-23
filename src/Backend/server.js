@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const cors = require('cors');
+const pdfParse = require('pdf-parse');
 
 // Initialize app and middleware
 const app = express();
@@ -25,6 +26,7 @@ const userSchema = new mongoose.Schema({
   location: String,
   experience: Number,
   resume: String,
+  resumeText: String,
 });
 
 const User = mongoose.model('User', userSchema);
@@ -45,23 +47,36 @@ app.post('/api/register', upload.single('resume'), async (req, res) => {
   const { fullName, email, password, mobileNumber, location, experience } = req.body;
   const resume = req.file ? req.file.filename : null;
 
-  const newUser = new User({
-    fullName,
-    email,
-    password,
-    mobileNumber,
-    location,
-    experience,
-    resume,
-  });
-
   try {
+    // Parse the PDF file to extract text
+    let resumeText = '';
+    if (req.file && req.file.path) {
+      const resumeBuffer = req.file.path; // Get resume file path
+      const dataBuffer = require('fs').readFileSync(resumeBuffer); // Read file as buffer
+      const parsedData = await pdfParse(dataBuffer); // Parse the PDF
+      resumeText = parsedData.text; // Extracted text
+    }
+
+    // Create new user and save extracted resume text
+    const newUser = new User({
+      fullName,
+      email,
+      password,
+      mobileNumber,
+      location,
+      experience,
+      resume,
+      resumeText, // Save the extracted text
+    });
+
     await newUser.save();
-    res.status(201).json({ message: 'User registered successfully' });
+    res.status(201).json({ message: 'User registered successfully', resumeText });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Failed to register user' });
   }
 });
+
 
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
