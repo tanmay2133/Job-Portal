@@ -71,6 +71,24 @@ const HomePage = () => {
           </form>
         </div>
       </div>
+      {/* AI Job Suggestions */}
+      <div className="container mt-3">
+        <h3>Job Suggestions</h3>
+        <div className="job-suggestions-box p-3 border rounded">
+          {jobSuggestions.length > 0 ? (
+            jobSuggestions.map((job, index) => (
+              <div className="suggestion" key={index}>
+                <p><strong>{job.title}</strong></p>
+                <p>Location: {job.location}</p>
+                <p>Experience: {job.experience} years</p>
+                <hr />
+              </div>
+            ))
+          ) : (
+            <p>No job suggestions available yet. Start by searching for jobs above.</p>
+          )}
+        </div>
+      </div>
 
       <div className="container mt-3">
         <h3>Job Suggestions</h3>
