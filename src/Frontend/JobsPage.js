@@ -6,9 +6,14 @@ import { useNavigate } from "react-router-dom";
 const JobsPage = () => {
   const navigate = useNavigate();
 
+  // Function to change the button text to "Applied" when clicked
+  const handleApply = (e) => {
+    e.target.innerText = 'Applied';
+    e.target.disabled = true;
+  };
+
   return (
     <div>
-      {/* Top Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container">
           <a className="navbar-brand" href="/">
@@ -25,33 +30,27 @@ const JobsPage = () => {
         </div>
       </nav>
 
-      {/* Filter Section and Job Categories */}
       <div className="container mt-4">
         <div className="row">
-          {/* Filters Column */}
           <div className="col-md-3">
             <div className="card mb-3 p-3 filter-card">
               <h5>Filters</h5>
               <form>
-                {/* Location */}
                 <div className="form-group mb-3">
                   <label>Location</label>
                   <input type="text" className="form-control" placeholder="Enter location" />
                 </div>
 
-                {/* Experience */}
                 <div className="form-group mb-3">
                   <label>Experience</label>
                   <input type="text" className="form-control" placeholder="Enter experience" />
                 </div>
 
-                {/* Salary */}
                 <div className="form-group mb-3">
                   <label>Salary</label>
                   <input type="text" className="form-control" placeholder="Enter salary" />
                 </div>
 
-                {/* Work Mode */}
                 <div className="form-group mb-3">
                   <label>Work Mode</label>
                   <select className="form-control">
@@ -61,7 +60,6 @@ const JobsPage = () => {
                   </select>
                 </div>
 
-                {/* Department */}
                 <div className="form-group mb-3">
                   <label>Department</label>
                   <input type="text" className="form-control" placeholder="Enter department" />
@@ -72,7 +70,6 @@ const JobsPage = () => {
             </div>
           </div>
 
-          {/* Job Categories */}
           <div className="col-md-9">
             <div className="card mb-4 p-3 category-card">
               <div className="d-flex justify-content-around">
@@ -83,18 +80,36 @@ const JobsPage = () => {
               </div>
             </div>
 
-            {/* Job Cards */}
             <div className="job-cards">
-              {/* Example Job Card */}
+              {/* Job Card 1 */}
               <div className="card mb-3 job-card">
                 <div className="card-body">
                   <h5 className="card-title">Software Engineer</h5>
                   <p className="card-text">Company: TechCorp</p>
                   <p className="card-text">Location: New York, NY</p>
-                  <a href="#" className="btn btn-primary">Apply Now</a>
+                  <button className="btn btn-primary" onClick={handleApply}>Apply Now</button>
                 </div>
               </div>
-              {/* Add more job cards as needed */}
+
+              {/* Job Card 2 */}
+              <div className="card mb-3 job-card">
+                <div className="card-body">
+                  <h5 className="card-title">Data Analyst</h5>
+                  <p className="card-text">Company: DataCorp</p>
+                  <p className="card-text">Location: Chicago, IL</p>
+                  <button className="btn btn-primary" onClick={handleApply}>Apply Now</button>
+                </div>
+              </div>
+
+              {/* Job Card 3 */}
+              <div className="card mb-3 job-card">
+                <div className="card-body">
+                  <h5 className="card-title">Product Manager</h5>
+                  <p className="card-text">Company: InnovateCo</p>
+                  <p className="card-text">Location: San Francisco, CA</p>
+                  <button className="btn btn-primary" onClick={handleApply}>Apply Now</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

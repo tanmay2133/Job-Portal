@@ -1,6 +1,4 @@
-/* Employer Registration Page CSS */
 
-/* Navigation bar styling */
 .navbar {
   background-color: #007bff;
   padding: 10px 0;
@@ -20,7 +18,6 @@
   text-decoration: underline;
 }
 
-/* Employer Registration Form Styling */
 .employer-register-background {
   background-color: #f8f9fa;
   padding: 50px 0;

@@ -1,6 +1,6 @@
-/* HomePage.css */
 
-/* Navbar styling */
+
+
 .navbar {
   padding: 1rem;
   font-size: 1.1rem;
@@ -14,7 +14,7 @@
   margin-left: 10px;
 }
 
-/* Search Section */
+
 .search-section {
   background-color: #f4f4f9;
   padding: 60px 0;
@@ -31,7 +31,6 @@
   padding: 15px;
 }
 
-/* Job Card Styling */
 .card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;

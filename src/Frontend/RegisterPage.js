@@ -42,10 +42,11 @@ const RegisterPage = () => {
         method: 'POST',
         body: formDataObj,
       });
-  
+      const data = await response.json();
       if (response.ok) {
         console.log('User registered successfully');
-        navigate('/login');
+        console.log(data);
+        navigate('/' ,{ state: { jobSuggestions: data.jobSuggestions || [] } });
       } else {
         console.error('Failed to register user');
       }
@@ -56,7 +57,6 @@ const RegisterPage = () => {
 
   return (
     <div>
-      {/* Top Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container">
           <a className="navbar-brand" href="/">
@@ -70,7 +70,6 @@ const RegisterPage = () => {
         </div>
       </nav>
 
-      {/* Registration Form Section */}
       <div className="register-background">
         <div className="container">
           <div className="row justify-content-center align-items-center vh-100">
@@ -81,7 +80,6 @@ const RegisterPage = () => {
                   
                 </div>
                 <form onSubmit={handleSubmit}>
-                  {/* Full Name */}
                   <div className="form-group mb-3">
                     <label>Full Name:</label>
                     <input
@@ -95,7 +93,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Email */}
                   <div className="form-group mb-3">
                     <label>Email:</label>
                     <input
@@ -109,7 +106,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Password */}
                   <div className="form-group mb-3">
                     <label>Password:</label>
                     <input
@@ -123,7 +119,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Mobile Number */}
                   <div className="form-group mb-3">
                     <label>Mobile Number:</label>
                     <input
@@ -137,7 +132,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Location */}
                   <div className="form-group mb-3">
                     <label>Location:</label>
                     <input
@@ -151,7 +145,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Experience */}
                   <div className="form-group mb-3">
                     <label>Experience (Years):</label>
                     <input
@@ -165,7 +158,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Resume Upload */}
                   <div className="form-group mb-3">
                     <label>Upload Resume:</label>
                     <input
@@ -178,7 +170,6 @@ const RegisterPage = () => {
                     />
                   </div>
 
-                  {/* Submit Button */}
                   <button type="submit" className="btn btn-primary w-100 mt-3">
                     Register
                   </button>

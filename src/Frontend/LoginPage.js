@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './LoginPage.css'; // Custom CSS for styling
+import './LoginPage.css'; 
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const LoginPage = () => {
   
       const data = await response.json();
       if (response.ok) {
-        navigate('/');
+        navigate('/Jobs');
       } else {
         setError(data.message);
       }
@@ -43,7 +43,6 @@ const LoginPage = () => {
 
   return (
     <div>
-      {/* Top Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container">
           <a className="navbar-brand" href="/">
@@ -57,7 +56,6 @@ const LoginPage = () => {
         </div>
       </nav>
       
-      {/* Login Form Section */}
       <div className="login-background">
         <div className="container">
           <div className="row justify-content-center align-items-center vh-100">
@@ -67,7 +65,6 @@ const LoginPage = () => {
                   <h2>Login</h2>
                 </div>
                 <form onSubmit={handleSubmit}>
-                  {/* Email */}
                   <div className="form-group mb-3">
                     <label>Email:</label>
                     <input
@@ -81,7 +78,6 @@ const LoginPage = () => {
                     />
                   </div>
 
-                  {/* Password */}
                   <div className="form-group mb-3">
                     <label>Password:</label>
                     <input
@@ -95,7 +91,6 @@ const LoginPage = () => {
                     />
                   </div>
 
-                  {/* Submit Button */}
                   <button type="submit" className="btn btn-primary w-100 mt-3">
                     Login
                   </button>

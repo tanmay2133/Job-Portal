@@ -41,7 +41,6 @@ const EmployerRegisterPage = () => {
 
   return (
     <div>
-      {/* Navigation Tab */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container">
           <a className="navbar-brand" href="/">
@@ -64,7 +63,6 @@ const EmployerRegisterPage = () => {
           <div className="card employer-register-card">
             <h2 className="text-center mb-4">Employer Registration</h2>
             <form onSubmit={handleSubmit}>
-              {/* Company Name */}
               <div className="form-group">
                 <label>Company Name</label>
                 <input
@@ -77,7 +75,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Email */}
               <div className="form-group">
                 <label>Email</label>
                 <input
@@ -90,7 +87,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Password */}
               <div className="form-group">
                 <label>Password</label>
                 <input
@@ -103,7 +99,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Confirm Password */}
               <div className="form-group">
                 <label>Confirm Password</label>
                 <input
@@ -116,7 +111,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Contact Number */}
               <div className="form-group">
                 <label>Contact Number</label>
                 <input
@@ -129,7 +123,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Company Website */}
               <div className="form-group">
                 <label>Company Website</label>
                 <input
@@ -141,7 +134,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Industry */}
               <div className="form-group">
                 <label>Industry</label>
                 <input
@@ -153,7 +145,6 @@ const EmployerRegisterPage = () => {
                 />
               </div>
 
-              {/* Company Size */}
               <div className="form-group">
                 <label>Company Size</label>
                 <select
@@ -171,7 +162,6 @@ const EmployerRegisterPage = () => {
                 </select>
               </div>
 
-              {/* Address */}
               <div className="form-group">
                 <label>Company Address</label>
                 <textarea
@@ -182,7 +172,6 @@ const EmployerRegisterPage = () => {
                 ></textarea>
               </div>
 
-              {/* Upload Company Profile */}
               <div className="form-group">
                 <label>Upload Company Profile (PDF)</label>
                 <input
