@@ -6,10 +6,12 @@ const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
+  // Assuming jobSuggestionsString is passed through location state
   const jobSuggestionsString = location.state?.jobSuggestions || '';
 
   return (
     <div>
+      {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container">
           <a className="navbar-brand" href="/">
@@ -27,6 +29,7 @@ const HomePage = () => {
         </div>
       </nav>
 
+      {/* Search Section */}
       <div className="search-section">
         <div className="container text-center">
           <h1 className="mb-4">Find Your Dream Job</h1>
@@ -71,25 +74,8 @@ const HomePage = () => {
           </form>
         </div>
       </div>
-      {/* AI Job Suggestions */}
-      <div className="container mt-3">
-        <h3>Job Suggestions</h3>
-        <div className="job-suggestions-box p-3 border rounded">
-          {jobSuggestions.length > 0 ? (
-            jobSuggestions.map((job, index) => (
-              <div className="suggestion" key={index}>
-                <p><strong>{job.title}</strong></p>
-                <p>Location: {job.location}</p>
-                <p>Experience: {job.experience} years</p>
-                <hr />
-              </div>
-            ))
-          ) : (
-            <p>No job suggestions available yet. Start by searching for jobs above.</p>
-          )}
-        </div>
-      </div>
 
+      {/* Job Suggestions Section */}
       <div className="container mt-3">
         <h3>Job Suggestions</h3>
         <div className="job-suggestions-box p-3 border rounded">
@@ -101,9 +87,11 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Job Cards Section */}
       <div className="container mt-5">
         <h3 className="mb-4">Popular Jobs</h3>
         <div className="row">
+          {/* Job Card 1 */}
           <div className="col-md-4">
             <div className="card mb-4">
               <div className="card-body">
@@ -115,6 +103,7 @@ const HomePage = () => {
             </div>
           </div>
 
+          {/* Job Card 2 */}
           <div className="col-md-4">
             <div className="card mb-4">
               <div className="card-body">
@@ -126,6 +115,7 @@ const HomePage = () => {
             </div>
           </div>
 
+          {/* Job Card 3 */}
           <div className="col-md-4">
             <div className="card mb-4">
               <div className="card-body">
@@ -138,6 +128,7 @@ const HomePage = () => {
           </div>
         </div>
 
+        {/* Add more job cards as needed */}
       </div>
     </div>
   );
